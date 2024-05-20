@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "579c4d31-5198-47ab-95bc-fe381ce0663f",
+		"name": "Collection API UTS Pem. Web Framework 20232 Copy",
+		"description": "Collection ini digunakan mahasiswa untuk testing API yang akan mahasiswa buat untuk pengerjaan soal UTS (**jangan di otak-atik field body nya**).\n\nKami sebagai dosen pengampu matakuliah akan menggunakan collection API ini untuk memudahkan proses penilaian, sehingga mahasiswa bisa mengetahui berapa nilai UTS yang didapat hanya dengan melakukan pemeriksaan kesesuaian antara API yang dibuat dengan request-response dari collection API ini. Untuk memudahkan penggunaaan collection API serta **SYARAT NILAI** ini ikuti aturan-aturan berikut:\n\n1. **WAJIB HOSTING**, berbayar atau tidak dipersilahkan asalkan pada saat penilaian API dapat berjalan dengan baik. Kegagalan request-response API karena permasalahan hosting diluar tanggung jawab dosen pengampu dan sudah dipastikan dapat nilai 0.\n2. **WAJIB DOMAIN**, boleh menggunakan sub-domain sehingga bisa membeli domain secara kolektif.\n3. Pada collection terdapat beberapa simbol seperti berikut, **yang mana simbol ini harus mahasiswa ganti sesuai dengan API yang mahasiswa buat**:\n    1. **{{baseUrl}}** : nama domain boleh menggunakan http atau https\n    2. **{{jwtToken}}** : token JWT untuk otentikasi dan otorisasi (segmentasi role admin dan user)\n    3. **{{id}}** : id untuk melakukan edit ataupun delete, id: 1, 2, 3, dst\n    4. \"isi kan bla bla bla\" : isi kan inputan sesuai dengan seharusnya (boleh dimodifikasi inputannya untuk cek validasi inputan)\n4. **WAJIB GUNAKAN VALIDASI INPUTAN**\n5. **WAJIB LARAVEL**\n    \n\n**Apa yang harus saya penuhi untuk dapat nilai UTS?**\n\n1. Pengumpulan dan presensi wajib di BOC (ketentuan fakultas tidak bisa kompromi)\n2. Tidak melanggar aturan-aturan diatas\n3. Pengumpulan UTS berupa **link source code project UTS di github/gitlab/bitbucket (public bukan hasil kompresi seperti zip/rar), dan alamat domain**\n4. Melebihi batas waktu pengumpulan dianggap tidak mengikuti UTS\n    \n\n> Merugilah dia yang mencontek dan/atau memberi contekan kepada orang lain. Karena sesungguhnya dia telah membodohi dirinya sendiri serta orang lain.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33380843"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTYxNzI3MTYsImV4cCI6MTcxNjE3NjMxNn0.9CeVMguhmRY_nc52tBrLckzIPfHMaJlFyRRXTsYxRGo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/categories",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "melihat semua kategori"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwibmFtZSI6Ik1VSEFNTUFEIFNZSUhBQlVESU4gVUJQS0FSQVdBTkciLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNjEzOTMxNCwiZXhwIjoxNzE2MTQyOTE0fQ._X7ilP1iRK9xKnnSmTGQ3PeO-Gyh7mMAxK3T8Kx7QpU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"oncom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/categories",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "membuat kategori"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTYxNzI3MTYsImV4cCI6MTcxNjE3NjMxNn0.9CeVMguhmRY_nc52tBrLckzIPfHMaJlFyRRXTsYxRGo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/categories/3",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories",
+								"3"
+							]
+						},
+						"description": "menyunting kategori sesuai id yang dipilih"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywibmFtZSI6InNpaGFwcCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE2MTczODIzLCJleHAiOjE3MTYxNzc0MjN9.DIzZDatsGESQfOW-Mzk7P4RrKSONSJ0cHBHeNDyhGXk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/categories/{3}",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories",
+								"{3}"
+							]
+						},
+						"description": "menghapus kategori sesuai dengan id yang dipilih"
+					},
+					"response": []
+				}
+			],
+			"description": "kelola kategori produk"
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwibmFtZSI6Ik1VSEFNTUFEIFNZSUhBQlVESU4gVUJQS0FSQVdBTkciLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNjE3MjM5MCwiZXhwIjoxNzE2MTc1OTkwfQ.Mh896dYtbOOS7Ckn8lUkrOMEClql5fq0YdKxhvSEapY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/products",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "melihat semua data produk"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTYxNzI3MTYsImV4cCI6MTcxNjE3NjMxNn0.9CeVMguhmRY_nc52tBrLckzIPfHMaJlFyRRXTsYxRGo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "jordan",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "malang asli",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "expired_at",
+									"value": "2025-04-03",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "upload gambar produk",
+									"type": "file",
+									"src": "postman-cloud:///1ef15f4f-6992-4590-9b96-680d2c3a9959"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/products",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "membuat data produk baru"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTYxNzI3MTYsImV4cCI6MTcxNjE3NjMxNn0.9CeVMguhmRY_nc52tBrLckzIPfHMaJlFyRRXTsYxRGo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ketoprak",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "cirebon banget",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "13000",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "expired_at",
+									"value": "2024-02-04",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "upload gambar produk",
+									"type": "file",
+									"src": "postman-cloud:///1ef15f4f-6992-4590-9b96-680d2c3a9959"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/products/1",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						},
+						"description": "menyunting data produk sesuai dengan id yang dipilih"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywibmFtZSI6InNpaGFwcCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE2MTczODIzLCJleHAiOjE3MTYxNzc0MjN9.DIzZDatsGESQfOW-Mzk7P4RrKSONSJ0cHBHeNDyhGXk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://utssihap.000webhostapp.com/api/products/3",
+							"protocol": "https",
+							"host": [
+								"utssihap",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"products",
+								"3"
+							]
+						},
+						"description": "menghapus data produk dengan id yang dipilih"
+					},
+					"response": []
+				}
+			],
+			"description": "mengelola data produk"
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"sihapp\",\r\n    \"email\":\"sihap@gmail.com\",\r\n    \"password\": \"rahasiabanget\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://utssihap.000webhostapp.com/api/register",
+					"protocol": "https",
+					"host": [
+						"utssihap",
+						"000webhostapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "registrasi akun"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"sihap@gmail.com\",\r\n    \"password\":\"rahasiabanget\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://utssihap.000webhostapp.com/api/login",
+					"protocol": "https",
+					"host": [
+						"utssihap",
+						"000webhostapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register with oauth google",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://utssihap.000webhostapp.com/api/oauth/register",
+					"protocol": "https",
+					"host": [
+						"utssihap",
+						"000webhostapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"oauth",
+						"register"
+					]
+				},
+				"description": "registrasi akun baru menggunakan google oauth (install laravel socialite)"
+			},
+			"response": []
+		}
+	]
+}
